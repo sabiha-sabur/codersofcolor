@@ -2,5 +2,9 @@
 {% load wagtailcore_tags %}
 {% block content %}
     <h1>{{ self.title }}</h1>
+    {% for child in page.get_children.live %}
+     <a href="{% pageurl child %}">{{ child.title }}</a>
+    {% endfor %}
+
     {{ page.body|richtext }}
 {% endblock %}
